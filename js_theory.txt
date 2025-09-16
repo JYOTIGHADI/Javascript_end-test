@@ -1,0 +1,167 @@
+Theory JavaScript Questions :
+
+
+1. Explain the difference between var, let, and const. Provide examples of scope differences.
+ans:  var: the var is a global scope is used for a var Function-scoped  if declared outside a function. It is hoisted and initialized with undefined.
+
+let: let is the Block-scoped. let are Hoisted but not initialized temporal dead zone.
+
+const: the const is Same as let in terms of scope, but value cannot be reassigned though objects arrays.
+
+examples of scope differences:
+function test() {
+  if (true) {
+    var x = 10;
+    let y = 20;
+    const z = 30;
+  }
+  console.log(x); 
+  console.log(y); 
+   console.log(z); 
+}
+test();
+
+
+
+
+2. What is event delegation in JavaScript? Why is it useful?
+ans:The Event delegation is the means attaching a single event listener to the  parent element to handle events on its children using event bubbling.
+
+Why is it useful: the event delegation is the useful for the Improves performance  and also Handles dynamically added elements in the code.
+
+
+
+
+3. Explain hoisting with an example for both functions and variables.
+ans:Hoisting is the means for the moving variable and function declarations to the top of their scope at compile time.
+
+hoisting example for the function:
+function sayHello() {
+  console.log("Hello!");
+}
+
+hoisting example for the variable:
+console.log(a);
+var a = 5;
+there is some example of a hoisting.
+
+
+
+
+4. What are closures? Write a simple function demonstrating closure.
+ans:closures: The closure is the a function remembers the variables from its outer scope even the  after the outer function has finished executing.
+
+The simple function demonstrating closure:
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    return count;
+  };
+}
+const counter = outer();
+this is the simple function of the demonstrating closure.
+
+
+
+
+5. How does the this keyword work in different contexts (global, object, class, arrow function)?
+ans:global: the Global context is the non-strict mode its is a toward refers to window in the browser.
+
+object: the object in the js its a Inside object method is the toward a refers to the object.
+
+class: the class keyword In class methods is the  refers to the instance of the class.
+
+Arrow function: is the arrow function is does not have its own this it  is a inherits from its surrounding scope.
+
+
+
+
+6. What is the difference between == and === in JavaScript? Why is one preferred over the other?
+ans: ==: this has  Compares the two value in == used this and also check the loose equality 
+JavaScript will attempt to convert one or both before comparing.
+
+===: this has the Compares two value for the equality without type conversion and the strict equality
+ JavaScript will attempt to convert one or both before comparin.
+
+Example:
+A == "A";   // true
+A === "A";  // false
+
+
+
+
+7. Explain the call(), apply(), and bind() methods with examples.
+ans:These methods allow us to Explain the set the value of this is the follow:
+function greet(greeting) {
+  console.log(greeting + " " + this.name );
+}
+
+const user = { name: "Alice" };
+
+greet.call(user, "Hello"); // Hello Alice
+greet.apply(user, ["Hi"]); // Hi Alice
+
+const boundFn = greet.bind(user, "Hey");
+boundFn("?"); // Hey Alice?
+
+this is the example of the call(), apply(), and bind() methods.
+
+
+
+
+8. What are Promises and async/await? Show how to handle errors properly in both.
+ans:Promise:is an object representing the code in a future value and also resolved or rejected.
+
+async/await: is an  async/await syntax over promises and its the makes async code look synchronous.
+
+how to handle errors properly in both:
+promises:
+fetch("url")
+  .then(res => res.json())
+  .catch(err => console.error(err));
+
+async/await:
+async function getData() {
+  try {
+    let res = await fetch("url");
+    let data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error("Error:", err);
+  }
+}
+getData();
+this is a errors Handles on the both side.
+
+
+
+
+9. What is event loop in JavaScript? Explain the difference between microtasks and macrotasks with an example.
+ans:The event loop in the javascript are manages the execution of code, handling the call stack, callback queue, and microtask queue.
+
+Macrotasks: its a  setTimeout, setInterval, setImmediate.
+
+Microtasks: its a Promises (.then), MutationObserver, queueMicrotask.
+
+
+
+
+10. How does JavaScript memory management work? Explain garbage collection briefly.
+ans:the JavaScript automatically manages memory. When its  objects and the variables are no longer reachable 
+the garbage collector frees up memory.The JavaScript engine runs a garbage collector to identify and reclaim memory 
+from objects that are no longer reachable.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
